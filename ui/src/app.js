@@ -25,62 +25,70 @@ const render = () => {
 	const muiTheme = createTheme({
 		typography: {
 			fontFamily: ['Oswald'],
+			button: {
+				textTransform: 'none',
+				fontWeight: 500,
+			},
 		},
 		palette: {
 			primary: {
-				main: '#8a0000',
-				light: '#ff2100',
-				dark: '#560000',
+				main: '#7BDCFFFF',
+				light: '#9CEDFFFF',
+				dark: '#0098CAFF',
 				contrastText: '#ffffff',
 			},
 			secondary: {
-				main: '#141414',
-				light: '#1c1c1c',
-				dark: '#0f0f0f',
+				main: '#2b2d31',
+				light: '#313338',
+				dark: '#1e1f22',
 				contrastText: '#ffffff',
 			},
 			error: {
-				main: '#6e1616',
-				light: '#a13434',
-				dark: '#430b0b',
+				main: '#ff4d4d',
+				light: '#ff6b6b',
+				dark: '#cc3d3d',
 			},
 			success: {
-				main: '#52984a',
-				light: '#60eb50',
-				dark: '#244a20',
+				main: '#4caf50',
+				light: '#6bc06f',
+				dark: '#3b8c3e',
 			},
 			warning: {
-				main: '#f09348',
-				light: '#f2b583',
-				dark: '#b05d1a',
+				main: '#ff9800',
+				light: '#ffa726',
+				dark: '#c66900',
 			},
 			info: {
-				main: '#247ba5',
-				light: '#247ba5',
-				dark: '#175878',
+				main: '#2196f3',
+				light: '#42a5f5',
+				dark: '#1a75c2',
 			},
 			text: {
 				main: '#ffffff',
-				alt: '#cecece',
-				info: '#919191',
+				alt: '#e0e0e0',
+				info: '#b0b0b0',
 				light: '#ffffff',
 				dark: '#000000',
 			},
 			rarities: {
 				rare1: '#ffffff',
-				rare2: '#52984a',
-				rare3: '#247ba5',
-				rare4: '#8e3bb8',
-				rare5: '#f2d411',
+				rare2: '#4caf50',
+				rare3: '#2196f3',
+				rare4: '#9c27b0',
+				rare5: '#ffd700',
 			},
 			border: {
-				main: '#e0e0e008',
-				light: '#ffffff',
-				dark: '#26292d',
+				main: 'rgba(255, 255, 255, 0.12)',
+				light: 'rgba(255, 255, 255, 0.23)',
+				dark: '#1e1f22',
 				input: 'rgba(255, 255, 255, 0.23)',
 				divider: 'rgba(255, 255, 255, 0.12)',
 			},
 			mode: 'dark',
+			background: {
+				default: '#1e1f22',
+				paper: '#2b2d31',
+			},
 		},
 		components: {
 			MuiCssBaseline: {
@@ -98,21 +106,23 @@ const render = () => {
 						opacity: 0,
 					},
 					'.fade-enter-active, .fade-exit-active': {
-						transition: 'opacity 500ms',
+						transition: 'opacity 300ms ease-in-out',
 					},
 					'*': {
 						'&::-webkit-scrollbar': {
-							width: 6,
+							width: 8,
 						},
 						'&::-webkit-scrollbar-thumb': {
-							background: '#8a0000',
+							background: '#7BDCFFFF',
+							borderRadius: 4,
 							transition: 'background ease-in 0.15s',
 						},
 						'&::-webkit-scrollbar-thumb:hover': {
-							background: '#56000017',
+							background: '#9CEDFFFF',
 						},
 						'&::-webkit-scrollbar-track': {
-							background: 'transparent',
+							background: '#2b2d31',
+							borderRadius: 4,
 						},
 					},
 				},
@@ -120,20 +130,49 @@ const render = () => {
 			MuiTooltip: {
 				styleOverrides: {
 					tooltip: {
-						fontSize: 16,
-						backgroundColor: '#151515',
-						border: '1px solid rgba(255, 255, 255, 0.23)',
-						boxShadow: `0 0 10px #000`,
+						fontSize: 14,
+						backgroundColor: '#2b2d31',
+						border: '1px solid rgba(255, 255, 255, 0.12)',
+						borderRadius: 8,
+						boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+						padding: '8px 12px',
 					},
 				},
 			},
 			MuiPaper: {
 				styleOverrides: {
 					root: {
-						background: '#0f0f0f',
+						background: '#2b2d31',
+						borderRadius: 12,
+						boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
 					},
 				},
 			},
+			MuiButton: {
+				styleOverrides: {
+					root: {
+						borderRadius: 8,
+						padding: '8px 16px',
+						transition: 'all 0.2s ease-in-out',
+						'&:hover': {
+							transform: 'translateY(-1px)',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+						},
+					},
+				},
+			},
+			MuiCard: {
+				styleOverrides: {
+					root: {
+						borderRadius: 12,
+						background: '#2b2d31',
+						boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+					},
+				},
+			},
+		},
+		shape: {
+			borderRadius: 8,
 		},
 	});
 	ReactDOM.render(
